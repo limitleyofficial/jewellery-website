@@ -1,6 +1,6 @@
 export default function ContactSection() {
   return (
-    <section className="bg-white">
+    <section id="contact" className="bg-white">
       <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
         <div className="border-t border-neutral-200 pt-16">
           <div className="rounded-[2rem] border border-neutral-200 bg-neutral-50 px-6 py-12 text-center sm:px-10">
