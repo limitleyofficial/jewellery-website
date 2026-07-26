@@ -3,6 +3,8 @@ import HeroSection from "../components/home/HeroSection";
 import TrustBar from "../components/home/TrustBar";
 import CollectionsPreview from "../components/home/CollectionsPreview";
 import AboutSection from "../components/home/AboutSection";
+import ShowroomsSection from "../components/home/ShowroomsSection";
+import ContactSection from "../components/home/ContactSection";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <TrustBar />
       <CollectionsPreview />
       <AboutSection />
+      <ShowroomsSection />
+      <ContactSection />
     </>
   );
 }
