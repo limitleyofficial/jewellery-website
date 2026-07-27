@@ -4,6 +4,7 @@ import TrustBar from "../components/home/TrustBar";
 import CollectionsPreview from "../components/home/CollectionsPreview";
 import AboutSection from "../components/home/AboutSection";
 import ShowroomsSection from "../components/home/ShowroomsSection";
+import WhyChooseUs from "../components/home/WhyChooseUs";
 import ContactSection from "../components/home/ContactSection";
 import Footer from "../components/home/Footer";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <CollectionsPreview />
       <AboutSection />
       <ShowroomsSection />
+      <WhyChooseUs />
       <ContactSection />
       <Footer />
     </>
