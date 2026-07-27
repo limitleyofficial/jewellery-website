@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -17,15 +18,18 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/85 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
-          <a
-            href="#"
-            className="text-lg font-semibold tracking-tight text-neutral-900"
-            onClick={() => setIsOpen(false)}
-          >
-            Limitley Labs
+          <a href="#" onClick={() => setIsOpen(false)} className="flex items-center">
+            <Image
+              src="/rakesh-jewellers-logo.png"
+              alt="Rakesh Jewellers"
+              width={180}
+              height={56}
+              className="h-12 w-auto"
+              priority
+            />
           </a>
 
-          <nav className="hidden md:flex gap-8">
+          <nav className="hidden gap-8 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.label}
