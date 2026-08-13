@@ -32,7 +32,10 @@ export default function CollectionsPreview() {
             </div>
 
             <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6">
-              <div className="h-56 rounded-[1.25rem] bg-white shadow-sm" />
+              <div className="relative h-56 overflow-hidden rounded-[1.25rem] border border-neutral-200 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 shadow-sm">
+  <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-neutral-200" />
+  <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-amber-200 bg-amber-50/40" />
+</div>
 
               <h3 className="mt-6 text-xl font-medium text-neutral-900">
                 Collection 02
