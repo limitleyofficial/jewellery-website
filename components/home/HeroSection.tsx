@@ -31,21 +31,6 @@ export default function HeroSection() {
               Find a Showroom
             </a>
           </div>
-
-          <div className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-neutral-200 pt-8">
-            <div>
-              <p className="text-2xl font-semibold text-neutral-900">10+</p>
-              <p className="mt-1 text-sm text-neutral-500">Showrooms</p>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold text-neutral-900">100%</p>
-              <p className="mt-1 text-sm text-neutral-500">Premium Finish</p>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold text-neutral-900">24/7</p>
-              <p className="mt-1 text-sm text-neutral-500">Luxury Support</p>
-            </div>
-          </div>
         </div>
 
         <div className="relative">
