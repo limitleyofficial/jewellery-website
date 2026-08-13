@@ -4,8 +4,8 @@ export default function HeroSection() {
       <div className="mx-auto grid min-h-[80vh] max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:px-8">
         <div className="max-w-2xl">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-neutral-500">
-            Premium Jewellery Collection
-          </p>
+  श्रृंगार by Rakesh Jewellers
+</p>
 
           <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
             Timeless jewellery crafted for life&apos;s most meaningful moments.
