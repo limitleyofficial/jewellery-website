@@ -7,27 +7,54 @@ export default function ContactSection() {
             <p className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
               Contact
             </p>
+
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
-              Ready to explore our collections in person?
+              Visit us or get in touch with our team.
             </h2>
+
             <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-neutral-600">
-              Get in touch with our team to ask questions, book a showroom visit,
-              or learn more about our latest pieces.
+              Explore the collections at our Jaipur showrooms or contact
+              Rakesh Jewellers for more information.
             </p>
 
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
               <a
-                href="#contact"
+                href="mailto:rakeshjewells@gmail.com"
                 className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-700"
               >
-                Contact Us
+                Email Us
               </a>
+
               <a
-                href="#showrooms"
+                href="https://www.instagram.com/rakesh_jewels01/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-900"
               >
-                View Showrooms
+                Instagram 01
               </a>
+
+              <a
+                href="https://www.instagram.com/rakesh_jewellers_jaipur/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-900"
+              >
+                Instagram 02
+              </a>
+            </div>
+
+            <div className="mt-8 space-y-2 text-sm text-neutral-500">
+              <p>
+                <a
+                  href="mailto:rakeshjewells@gmail.com"
+                  className="transition hover:text-neutral-900"
+                >
+                  rakeshjewells@gmail.com
+                </a>
+              </p>
+
+              <p>Rakesh Jewellers · Jaipur, Rajasthan</p>
             </div>
           </div>
         </div>
