@@ -20,7 +20,7 @@ export default function ShowroomsSection() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {/* Showroom 01 */}
-            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6">
+            <div className="group rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6 transition duration-300 hover:-translate-y-1 hover:border-neutral-300 hover:bg-white hover:shadow-lg">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
                 Showroom 01
               </p>
@@ -45,7 +45,7 @@ export default function ShowroomsSection() {
             </div>
 
             {/* Showroom 02 */}
-            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6">
+            <div className="group rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6 transition duration-300 hover:-translate-y-1 hover:border-neutral-300 hover:bg-white hover:shadow-lg">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
                 Showroom 02
               </p>
