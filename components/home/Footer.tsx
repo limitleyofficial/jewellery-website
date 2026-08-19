@@ -16,7 +16,8 @@ export default function Footer() {
             />
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-white/70">
-              श्रृंगार by Rakesh Jewellers — premium jewellery for life&apos;s most meaningful moments.
+              श्रृंगार by Rakesh Jewellers — premium jewellery for life&apos;s
+              most meaningful moments.
             </p>
           </div>
 
@@ -64,13 +65,13 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Contact */}
+          {/* Contact & Showrooms */}
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.25em] text-white/60">
               Contact
             </p>
 
-            <div className="mt-4 flex flex-col gap-3 text-sm">
+            <div className="mt-4 flex flex-col gap-4 text-sm">
               <a
                 href="mailto:rakeshjewells@gmail.com"
                 className="text-white/70 transition hover:text-white"
@@ -96,12 +97,26 @@ export default function Footer() {
                 Instagram — Rakesh Jewellers Jaipur
               </a>
 
-              <a
-                href="#showrooms"
-                className="text-white/70 transition hover:text-white"
-              >
-                View Showrooms
-              </a>
+              <div className="pt-2">
+                <p className="mb-2 font-medium text-white/90">
+                  Showroom 01
+                </p>
+                <p className="leading-6 text-white/60">
+                  Shop No. 95, Corner, Khatipura Rd, Ambika Vihar Colony,
+                  Prem Nagar, Jhotwara, Jaipur, Rajasthan 302012
+                </p>
+              </div>
+
+              <div>
+                <p className="mb-2 font-medium text-white/90">
+                  Showroom 02
+                </p>
+                <p className="leading-6 text-white/60">
+                  Shop No. 43, Near Nursery Circle, Amrapali Marg, opposite
+                  Tagore Public School, Vaishali Nagar, Jaipur, Rajasthan
+                  302021
+                </p>
+              </div>
             </div>
           </div>
         </div>
