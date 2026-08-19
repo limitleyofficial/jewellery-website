@@ -4,16 +4,16 @@ export default function HeroSection() {
       <div className="mx-auto grid min-h-[80vh] max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:px-8">
         <div className="max-w-2xl">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-neutral-500">
-  श्रृंगार by Rakesh Jewellers
-</p>
+            श्रृंगार by Rakesh Jewellers
+          </p>
 
           <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
-            Timeless jewellery crafted for life&apos;s most meaningful moments.
+            Discover jewellery made for life&apos;s most meaningful moments.
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-7 text-neutral-600 sm:text-lg">
-            Discover elegant collections across multiple showrooms, designed to
-            bring together luxury, craftsmanship, and lasting beauty.
+            Explore Rakesh Jewellers in Jaipur and discover jewellery for
+            celebrations, special occasions, and everyday moments.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -35,13 +35,17 @@ export default function HeroSection() {
 
         <div className="relative">
           <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-neutral-100 via-white to-neutral-200" />
+
           <div className="rounded-[2rem] border border-neutral-200 bg-white p-6 shadow-sm">
-           <div className="relative h-[420px] overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-gradient-to-br from-neutral-50 via-white to-neutral-100">
-  <div className="absolute left-10 top-10 h-56 w-56 rounded-full bg-neutral-200/60 blur-3xl" />
-  <div className="absolute bottom-10 right-10 h-40 w-40 rounded-full bg-amber-200/50 blur-3xl" />
-  <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-neutral-300/70 bg-white shadow-sm" />
-  <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-amber-200 bg-gradient-to-br from-amber-100 to-white shadow-md" />
-</div> 
+            <div className="relative h-[420px] overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-gradient-to-br from-neutral-50 via-white to-neutral-100">
+              <div className="absolute left-10 top-10 h-56 w-56 rounded-full bg-neutral-200/60 blur-3xl" />
+
+              <div className="absolute bottom-10 right-10 h-40 w-40 rounded-full bg-amber-200/50 blur-3xl" />
+
+              <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-neutral-300/70 bg-white shadow-sm" />
+
+              <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-amber-200 bg-gradient-to-br from-amber-100 to-white shadow-md" />
+            </div>
           </div>
         </div>
       </div>
