@@ -16,7 +16,7 @@ export default function Footer() {
             />
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-white/70">
-              Premium jewellery crafted for life&apos;s most meaningful moments.
+              श्रृंगार by Rakesh Jewellers — premium jewellery for life&apos;s most meaningful moments.
             </p>
           </div>
 
