@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Rakesh Jewellers | Premium Jewellery Website",
+  title: "श्रृंगार by Rakesh Jewellers",
   description:
-    "A modern, elegant, and responsive jewellery website built for Rakesh Jewellers' luxury showroom experience.",
+    "A modern, elegant, and responsive jewellery website built for श्रृंगार by Rakesh Jewellers.",
   openGraph: {
-    title: "Rakesh Jewellers | Premium Jewellery Website",
+    title: "श्रृंगार by Rakesh Jewellers",
     description:
-      "A modern, elegant, and responsive jewellery website built for Rakesh Jewellers' luxury showroom experience.",
+      "A modern, elegant, and responsive jewellery website built for श्रृंगार by Rakesh Jewellers.",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Rakesh Jewellers | Premium Jewellery Website",
+    title: "श्रृंगार by Rakesh Jewellers",
     description:
-      "A modern, elegant, and responsive jewellery website built for Rakesh Jewellers' luxury showroom experience.",
+      "A modern, elegant, and responsive jewellery website built for श्रृंगार by Rakesh Jewellers.",
   },
 };
 
