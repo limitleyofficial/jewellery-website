@@ -15,26 +15,30 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/90 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex items-center justify-between py-4">
-          <a href="#" onClick={() => setIsOpen(false)} className="flex items-center">
+        <div className="flex items-center justify-between py-3">
+          <a
+            href="#"
+            onClick={() => setIsOpen(false)}
+            className="flex shrink-0 items-center"
+          >
             <Image
               src="/rakesh-jewellers-logo.png"
               alt="Rakesh Jewellers"
-              width={180}
-              height={56}
-              className="h-12 w-auto"
+              width={200}
+              height={62}
+              className="h-14 w-auto object-contain"
               priority
             />
           </a>
 
-          <nav className="hidden gap-8 md:flex">
+          <nav className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-neutral-700 transition hover:text-neutral-950"
+                className="text-sm font-medium text-neutral-700 transition hover:text-neutral-950"
               >
                 {link.label}
               </a>
@@ -43,12 +47,12 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full border border-neutral-200 px-4 py-2 text-sm text-neutral-900 md:hidden"
+            className="inline-flex items-center justify-center rounded-full border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-900 md:hidden"
             onClick={() => setIsOpen((prev) => !prev)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
           >
-            Menu
+            {isOpen ? "Close" : "Menu"}
           </button>
         </div>
 
@@ -59,7 +63,7 @@ export default function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-sm text-neutral-700 transition hover:text-neutral-950"
+                  className="text-sm font-medium text-neutral-700 transition hover:text-neutral-950"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
