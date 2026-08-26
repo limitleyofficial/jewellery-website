@@ -1,11 +1,24 @@
+import Image from "next/image";
+
 export default function HeroSection() {
   return (
     <section className="bg-white">
       <div className="mx-auto grid min-h-[80vh] max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:px-8">
         <div className="max-w-2xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-neutral-500">
-            श्रृंगार by Rakesh Jewellers
-          </p>
+          <div className="mb-6">
+            <Image
+              src="/shringar-logo.png"
+              alt="श्रृंगार"
+              width={320}
+              height={150}
+              className="h-auto w-64 object-contain object-left sm:w-72"
+              priority
+            />
+
+            <p className="mt-1 text-xs font-medium uppercase tracking-[0.3em] text-neutral-500">
+              by Rakesh Jewellers
+            </p>
+          </div>
 
           <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
             Discover jewellery made for life&apos;s most meaningful moments.
