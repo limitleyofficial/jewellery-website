@@ -2,8 +2,13 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="bg-white">
-      <div className="mx-auto grid min-h-[80vh] max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:px-8">
+    <section className="relative overflow-hidden bg-[#faf9f6]">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-amber-100/40 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-neutral-200/50 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto grid min-h-[80vh] max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:px-8">
         <div className="max-w-2xl">
           <div className="mb-6">
             <Image
@@ -49,7 +54,7 @@ export default function HeroSection() {
         <div className="relative">
           <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-neutral-100 via-white to-neutral-200" />
 
-          <div className="rounded-[2rem] border border-neutral-200 bg-white p-6 shadow-sm">
+          <div className="rounded-[2rem] border border-neutral-200 bg-white/80 p-6 shadow-sm backdrop-blur-sm">
             <div className="relative h-[420px] overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-gradient-to-br from-neutral-50 via-white to-neutral-100">
               <div className="absolute left-10 top-10 h-56 w-56 rounded-full bg-neutral-200/60 blur-3xl" />
 
