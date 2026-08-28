@@ -47,9 +47,9 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-900 md:hidden"
+            className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-sm transition hover:border-neutral-900 md:hidden"
             onClick={() => setIsOpen((prev) => !prev)}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
             {isOpen ? "Close" : "Menu"}
@@ -57,20 +57,22 @@ export default function Navbar() {
         </div>
 
         {isOpen && (
-          <nav className="border-t border-neutral-200 py-4 md:hidden">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm font-medium text-neutral-700 transition hover:text-neutral-950"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </nav>
+          <div className="pb-4 md:hidden">
+            <nav className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+              <div className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="rounded-xl px-4 py-3 text-sm font-medium text-neutral-700 transition hover:bg-white hover:text-neutral-950"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </nav>
+          </div>
         )}
       </div>
     </header>
