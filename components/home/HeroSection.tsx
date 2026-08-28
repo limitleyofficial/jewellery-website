@@ -52,17 +52,21 @@ export default function HeroSection() {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-neutral-100 via-white to-neutral-200" />
+          <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-amber-100/40 via-transparent to-neutral-200/50 blur-2xl" />
 
-          <div className="rounded-[2rem] border border-neutral-200 bg-white/80 p-6 shadow-sm backdrop-blur-sm">
-            <div className="relative h-[420px] overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-gradient-to-br from-neutral-50 via-white to-neutral-100">
-              <div className="absolute left-10 top-10 h-56 w-56 rounded-full bg-neutral-200/60 blur-3xl" />
+          <div className="relative rounded-[2rem] border border-neutral-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm sm:p-6">
+            <div className="relative flex h-[420px] items-center justify-center overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-gradient-to-br from-neutral-50 via-white to-neutral-100">
+              <div className="absolute left-0 top-0 h-48 w-48 -translate-x-1/3 -translate-y-1/3 rounded-full bg-amber-100/50 blur-3xl" />
 
-              <div className="absolute bottom-10 right-10 h-40 w-40 rounded-full bg-amber-200/50 blur-3xl" />
+              <div className="absolute bottom-0 right-0 h-56 w-56 translate-x-1/3 translate-y-1/3 rounded-full bg-neutral-200/60 blur-3xl" />
 
-              <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-neutral-300/70 bg-white shadow-sm" />
+              <div className="relative flex h-72 w-72 items-center justify-center rounded-full border border-neutral-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
+                <div className="h-56 w-56 rounded-full border border-neutral-200" />
 
-              <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-amber-200 bg-gradient-to-br from-amber-100 to-white shadow-md" />
+                <div className="absolute h-36 w-36 rounded-full border border-amber-200 bg-gradient-to-br from-amber-100/80 to-white shadow-sm" />
+
+                <div className="absolute h-16 w-16 rounded-full bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)]" />
+              </div>
             </div>
           </div>
         </div>
