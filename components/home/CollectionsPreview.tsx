@@ -6,44 +6,37 @@ import { useEffect, useState } from "react";
 const products = [
   {
     title: "Green Necklace",
-    description:
-      "Elegant jewellery featuring a refined green-stone design.",
+    description: "Elegant green-stone jewellery with a timeless finish.",
     image: "/images/products/product-01.jpeg",
   },
   {
     title: "Bridal Jewellery",
-    description:
-      "A traditional jewellery piece designed for memorable occasions.",
+    description: "Traditional jewellery created for memorable occasions.",
     image: "/images/products/product-02.jpeg",
   },
   {
     title: "Green Necklace Close-up",
-    description:
-      "A closer look at the detailing and stonework of the necklace.",
+    description: "A closer look at the intricate detailing and stonework.",
     image: "/images/products/product-03.jpeg",
   },
   {
     title: "Silver Bracelet",
-    description:
-      "A refined silver bracelet presented in a premium setting.",
+    description: "A refined bracelet design with a polished finish.",
     image: "/images/products/product-04.jpeg",
   },
   {
     title: "Silver Bracelet",
-    description:
-      "A detailed silver bracelet with a clean, elegant finish.",
+    description: "Elegant detailing presented in a clean, modern style.",
     image: "/images/products/product-05.jpeg",
   },
   {
     title: "Silver Bracelet",
-    description:
-      "Another silver bracelet design from the collection.",
+    description: "A sophisticated silver design for effortless elegance.",
     image: "/images/products/product-06.jpeg",
   },
   {
     title: "Gold Set",
-    description:
-      "A classic gold jewellery set with an elegant traditional finish.",
+    description: "A classic gold set with a refined traditional appeal.",
     image: "/images/products/product-07.jpeg",
   },
 ];
@@ -82,9 +75,7 @@ export default function CollectionsPreview() {
   };
 
   useEffect(() => {
-    if (!selectedImage) {
-      return;
-    }
+    if (!selectedImage) return;
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -103,74 +94,90 @@ export default function CollectionsPreview() {
 
   return (
     <>
-      <section id="collections" className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
-          <div className="border-t border-neutral-200 pt-16">
-            <div className="max-w-2xl">
-              <p className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
-                Collections
-              </p>
+      <section id="collections" className="bg-[#faf9f6]">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.35em] text-neutral-500">
+              The Collection
+            </p>
 
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
-                Explore our jewellery collections.
-              </h2>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+              Jewellery that speaks for itself.
+            </h2>
 
-              <p className="mt-4 text-base leading-7 text-neutral-600">
-                Discover thoughtfully selected jewellery pieces from श्रृंगार
-                by Rakesh Jewellers.
-              </p>
-            </div>
+            <p className="mt-5 text-base leading-7 text-neutral-600">
+              Explore selected pieces from श्रृंगार by Rakesh Jewellers,
+              thoughtfully presented for every special moment.
+            </p>
+          </div>
 
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {products.map((product) => (
-                <article
-                  key={`${product.title}-${product.image}`}
-                  className="group overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-neutral-50 transition duration-300 hover:-translate-y-1 hover:border-neutral-300 hover:bg-white hover:shadow-lg"
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((product, index) => (
+              <article
+                key={`${product.title}-${product.image}`}
+                className={`group overflow-hidden rounded-[2rem] border border-neutral-200 bg-white shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-xl ${
+                  index === 0 || index === 1 || index === 6
+                    ? "lg:shadow-md"
+                    : ""
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => openImage(product.image, product.title)}
+                  className="block w-full cursor-zoom-in text-left"
+                  aria-label={`View ${product.title} larger`}
                 >
+                  <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                    />
+
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+
+                    <div className="absolute inset-x-5 bottom-5 flex items-center justify-between rounded-full border border-white/30 bg-black/30 px-4 py-2.5 text-xs font-medium text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100">
+                      <span>View Jewellery</span>
+                      <span>↗</span>
+                    </div>
+                  </div>
+                </button>
+
+                <div className="p-6 sm:p-7">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-neutral-400">
+                    Rakesh Jewellers
+                  </p>
+
+                  <h3 className="mt-3 text-xl font-medium tracking-tight text-neutral-900">
+                    {product.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-neutral-600">
+                    {product.description}
+                  </p>
+
                   <button
                     type="button"
-                    onClick={() =>
-                      openImage(product.image, product.title)
-                    }
-                    className="block w-full cursor-zoom-in text-left"
-                    aria-label={`View ${product.title} larger`}
+                    onClick={() => openImage(product.image, product.title)}
+                    className="mt-5 inline-flex items-center text-sm font-medium text-neutral-900 transition hover:text-neutral-500"
                   >
-                    <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
-                      <Image
-                        src={product.image}
-                        alt={product.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition duration-500 group-hover:scale-105"
-                      />
-
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-
-                      <div className="absolute bottom-4 right-4 rounded-full bg-white/90 px-3 py-2 text-xs font-medium text-neutral-900 opacity-0 shadow-sm backdrop-blur-sm transition duration-300 group-hover:opacity-100">
-                        View
-                      </div>
-                    </div>
+                    View details
+                    <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
                   </button>
-
-                  <div className="p-6">
-                    <h3 className="text-xl font-medium text-neutral-900">
-                      {product.title}
-                    </h3>
-
-                    <p className="mt-2 text-sm leading-6 text-neutral-600">
-                      {product.description}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
           role="dialog"
           aria-modal="true"
           aria-label={`${selectedImage.title} enlarged view`}
@@ -185,7 +192,7 @@ export default function CollectionsPreview() {
             <button
               type="button"
               onClick={closeImage}
-              className="absolute right-3 top-3 z-20 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-neutral-900 shadow-sm transition hover:bg-white"
+              className="absolute right-3 top-3 z-20 rounded-full border border-white/20 bg-white/90 px-4 py-2 text-sm font-medium text-neutral-900 shadow-lg transition hover:bg-white"
               aria-label="Close image viewer"
             >
               Close
