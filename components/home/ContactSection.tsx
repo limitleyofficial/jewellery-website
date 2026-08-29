@@ -1,9 +1,20 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+
 export default function ContactSection() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
     <section id="contact" className="bg-white">
       <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
         <div className="border-t border-neutral-200 pt-16">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+          <div className="grid gap-12 lg:grid-cols-2">
             {/* Contact information */}
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
@@ -61,58 +72,178 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Contact card */}
-            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-8">
+            {/* Enquiry form */}
+            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
-                Visit Us
+                Enquiry
               </p>
 
               <h3 className="mt-4 text-2xl font-medium text-neutral-900">
-                Two showroom locations in Jaipur
+                Tell us what you&apos;re looking for.
               </h3>
 
-              <div className="mt-6 space-y-6">
-                <div>
-                  <p className="font-medium text-neutral-900">
-                    Showroom 01
+              {submitted ? (
+                <div className="mt-8 rounded-2xl border border-neutral-200 bg-white p-6">
+                  <p className="text-lg font-medium text-neutral-900">
+                    Thank you for your enquiry.
                   </p>
 
                   <p className="mt-2 text-sm leading-6 text-neutral-600">
-                    Shop No. 95, Corner, Khatipura Rd, Ambika Vihar Colony,
-                    Prem Nagar, Jhotwara, Jaipur, Rajasthan 302012
+                    Your enquiry form is ready. We&apos;ll connect it to the
+                    website backend next so submissions can be received
+                    properly.
                   </p>
 
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Shop+No+95+Corner+Khatipura+Rd+Ambika+Vihar+Colony+Prem+Nagar+Jhotwara+Jaipur+Rajasthan+302012"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex text-sm font-medium text-neutral-900 underline underline-offset-4 transition hover:text-neutral-500"
+                  <button
+                    type="button"
+                    onClick={() => setSubmitted(false)}
+                    className="mt-5 rounded-full border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-900 transition hover:border-neutral-900"
                   >
-                    Get Directions →
-                  </a>
+                    Send another enquiry
+                  </button>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="mb-2 block text-sm font-medium text-neutral-900"
+                    >
+                      Name
+                    </label>
 
-                <div className="border-t border-neutral-200 pt-6">
-                  <p className="font-medium text-neutral-900">
-                    Showroom 02
-                  </p>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      placeholder="Your name"
+                      className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-neutral-900"
+                    />
+                  </div>
 
-                  <p className="mt-2 text-sm leading-6 text-neutral-600">
-                    Shop No. 43, Near Nursery Circle, Amrapali Marg, opposite
-                    Tagore Public School, Vaishali Nagar, Jaipur, Rajasthan
-                    302021
-                  </p>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="mb-2 block text-sm font-medium text-neutral-900"
+                      >
+                        Email
+                      </label>
 
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Shop+No+43+Near+Nursery+Circle+Amrapali+Marg+opposite+Tagore+Public+School+Vaishali+Nagar+Jaipur+Rajasthan+302021"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex text-sm font-medium text-neutral-900 underline underline-offset-4 transition hover:text-neutral-500"
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="you@example.com"
+                        className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-neutral-900"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="phone"
+                        className="mb-2 block text-sm font-medium text-neutral-900"
+                      >
+                        Phone
+                      </label>
+
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="+91 XXXXX XXXXX"
+                        className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-neutral-900"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="mb-2 block text-sm font-medium text-neutral-900"
+                    >
+                      Message
+                    </label>
+
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      required
+                      placeholder="Tell us what jewellery you're interested in..."
+                      className="w-full resize-none rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-neutral-900"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full rounded-full bg-neutral-900 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-neutral-700"
                   >
-                    Get Directions →
-                  </a>
-                </div>
-              </div>
+                    Send Enquiry
+                  </button>
+
+                  <p className="text-center text-xs leading-5 text-neutral-500">
+                    We&apos;ll connect this form to the enquiry backend next.
+                  </p>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Showrooms */}
+        <div className="mt-16 border-t border-neutral-200 pt-16">
+          <div className="max-w-2xl">
+            <p className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
+              Visit Us
+            </p>
+
+            <h3 className="mt-4 text-2xl font-medium text-neutral-900 sm:text-3xl">
+              Two showroom locations in Jaipur
+            </h3>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
+                Showroom 01
+              </p>
+
+              <p className="mt-4 text-sm leading-6 text-neutral-600">
+                Shop No. 95, Corner, Khatipura Rd, Ambika Vihar Colony,
+                Prem Nagar, Jhotwara, Jaipur, Rajasthan 302012
+              </p>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Shop+No+95+Corner+Khatipura+Rd+Ambika+Vihar+Colony+Prem+Nagar+Jhotwara+Jaipur+Rajasthan+302012"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex text-sm font-medium text-neutral-900 underline underline-offset-4 transition hover:text-neutral-500"
+              >
+                Get Directions →
+              </a>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
+                Showroom 02
+              </p>
+
+              <p className="mt-4 text-sm leading-6 text-neutral-600">
+                Shop No. 43, Near Nursery Circle, Amrapali Marg, opposite
+                Tagore Public School, Vaishali Nagar, Jaipur, Rajasthan 302021
+              </p>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Shop+No+43+Near+Nursery+Circle+Amrapali+Marg+opposite+Tagore+Public+School+Vaishali+Nagar+Jaipur+Rajasthan+302021"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex text-sm font-medium text-neutral-900 underline underline-offset-4 transition hover:text-neutral-500"
+              >
+                Get Directions →
+              </a>
             </div>
           </div>
         </div>
