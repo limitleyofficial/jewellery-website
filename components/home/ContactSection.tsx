@@ -5,9 +5,40 @@ import { FormEvent, useState } from "react";
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const data = {
+      name: String(formData.get("name") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      message: String(formData.get("message") ?? ""),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to send enquiry.");
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Unable to send your enquiry right now. Please try again.");
+    }
   };
 
   return (
@@ -15,7 +46,6 @@ export default function ContactSection() {
       <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
         <div className="border-t border-neutral-200 pt-16">
           <div className="grid gap-12 lg:grid-cols-2">
-            {/* Contact information */}
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
                 Contact
@@ -72,7 +102,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Enquiry form */}
             <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
                 Enquiry
@@ -89,9 +118,8 @@ export default function ContactSection() {
                   </p>
 
                   <p className="mt-2 text-sm leading-6 text-neutral-600">
-                    Your enquiry form is ready. We&apos;ll connect it to the
-                    website backend next so submissions can be received
-                    properly.
+                    Your enquiry has been sent successfully. We&apos;ll get
+                    back to you soon.
                   </p>
 
                   <button
@@ -183,17 +211,12 @@ export default function ContactSection() {
                   >
                     Send Enquiry
                   </button>
-
-                  <p className="text-center text-xs leading-5 text-neutral-500">
-                    We&apos;ll connect this form to the enquiry backend next.
-                  </p>
                 </form>
               )}
             </div>
           </div>
         </div>
 
-        {/* Showrooms */}
         <div className="mt-16 border-t border-neutral-200 pt-16">
           <div className="max-w-2xl">
             <p className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
