@@ -1,7 +1,14 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 export async function POST(request: Request) {
   try {
@@ -22,21 +29,63 @@ export async function POST(request: Request) {
       );
     }
 
+    const apiKey = process.env.RESEND_API_KEY;
+
+    if (!apiKey) {
+      console.error("RESEND_API_KEY is not configured.");
+
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Email service is not configured yet.",
+        },
+        { status: 503 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = escapeHtml(phone || "Not provided");
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
+
     const { error } = await resend.emails.send({
       from: "Website Enquiry <onboarding@resend.dev>",
       to: ["limitleyofficial@gmail.com"],
       replyTo: email,
       subject: `New Website Enquiry from ${name}`,
       html: `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #171717;">
+        <div
+          style="
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #171717;
+            max-width: 600px;
+            margin: 0 auto;
+          "
+        >
           <h2>New Website Enquiry</h2>
 
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+          <p>
+            <strong>Name:</strong> ${safeName}
+          </p>
 
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, "<br />")}</p>
+          <p>
+            <strong>Email:</strong> ${safeEmail}
+          </p>
+
+          <p>
+            <strong>Phone:</strong> ${safePhone}
+          </p>
+
+          <p>
+            <strong>Message:</strong>
+          </p>
+
+          <p>
+            ${safeMessage}
+          </p>
         </div>
       `,
     });
