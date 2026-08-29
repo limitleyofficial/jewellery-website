@@ -15,62 +15,103 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex items-center justify-between py-3">
+    <header className="sticky top-0 z-50 border-b border-neutral-200/60 bg-[#faf9f6]/95 backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="flex h-[78px] items-center justify-between">
+          {/* Logo */}
           <a
             href="#"
             onClick={() => setIsOpen(false)}
-            className="flex shrink-0 items-center"
+            className="flex items-center"
+            aria-label="Rakesh Jewellers - Home"
           >
             <Image
               src="/rakesh-jewellers-logo.png"
               alt="Rakesh Jewellers"
-              width={200}
+              width={180}
               height={62}
-              className="h-14 w-auto object-contain"
+              className="h-12 w-auto object-contain sm:h-14"
               priority
             />
           </a>
 
-          <nav className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-neutral-700 transition hover:text-neutral-950"
-              >
-                {link.label}
-              </a>
-            ))}
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center md:flex">
+            <div className="flex items-center gap-10">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="relative py-2 text-[13px] font-medium tracking-wide text-neutral-700 transition-colors duration-300 hover:text-neutral-950"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </nav>
 
+          {/* Mobile Menu Button */}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-sm transition hover:border-neutral-900 md:hidden"
             onClick={() => setIsOpen((prev) => !prev)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-900 transition hover:border-neutral-400 md:hidden"
           >
-            {isOpen ? "Close" : "Menu"}
+            <span className="sr-only">
+              {isOpen ? "Close menu" : "Open menu"}
+            </span>
+
+            {isOpen ? (
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+              >
+                <path d="M6 6l12 12" />
+                <path d="M18 6L6 18" />
+              </svg>
+            ) : (
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+              >
+                <path d="M4 7h16" />
+                <path d="M4 12h16" />
+                <path d="M4 17h16" />
+              </svg>
+            )}
           </button>
         </div>
 
+        {/* Mobile Navigation */}
         {isOpen && (
-          <div className="pb-4 md:hidden">
-            <nav className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-              <div className="flex flex-col gap-1">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="rounded-xl px-4 py-3 text-sm font-medium text-neutral-700 transition hover:bg-white hover:text-neutral-950"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
+          <div className="border-t border-neutral-200/70 pb-5 pt-4 md:hidden">
+            <nav className="flex flex-col">
+              {navLinks.map((link, index) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`flex items-center justify-between py-4 text-sm font-medium tracking-wide text-neutral-800 transition-colors hover:text-neutral-500 ${
+                    index !== navLinks.length - 1
+                      ? "border-b border-neutral-200/70"
+                      : ""
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  <span className="text-neutral-400">→</span>
+                </a>
+              ))}
             </nav>
           </div>
         )}
