@@ -3,58 +3,116 @@ export default function ContactSection() {
     <section id="contact" className="bg-white">
       <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
         <div className="border-t border-neutral-200 pt-16">
-          <div className="rounded-[2rem] border border-neutral-200 bg-neutral-50 px-6 py-12 text-center sm:px-10">
-            <p className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
-              Contact
-            </p>
-
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
-              Visit us or get in touch with our team.
-            </h2>
-
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-neutral-600">
-              Explore the collections at our Jaipur showrooms or contact
-              Rakesh Jewellers for more information.
-            </p>
-
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-              <a
-                href="mailto:rakeshjewells@gmail.com"
-                className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-700"
-              >
-                Email Us
-              </a>
-
-              <a
-                href="https://www.instagram.com/rakesh_jewels01/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-900"
-              >
-                Instagram 01
-              </a>
-
-              <a
-                href="https://www.instagram.com/rakesh_jewellers_jaipur/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-900"
-              >
-                Instagram 02
-              </a>
-            </div>
-
-            <div className="mt-8 space-y-2 text-sm text-neutral-500">
-              <p>
-                <a
-                  href="mailto:rakeshjewells@gmail.com"
-                  className="transition hover:text-neutral-900"
-                >
-                  rakeshjewells@gmail.com
-                </a>
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+            {/* Contact information */}
+            <div>
+              <p className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
+                Contact
               </p>
 
-              <p>Rakesh Jewellers · Jaipur, Rajasthan</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
+                We&apos;d love to hear from you.
+              </h2>
+
+              <p className="mt-4 max-w-xl text-base leading-7 text-neutral-600">
+                Have a question about our jewellery or want to visit a
+                showroom? Get in touch with श्रृंगार by Rakesh Jewellers.
+              </p>
+
+              <div className="mt-8 space-y-6">
+                <div>
+                  <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
+                    Email
+                  </p>
+
+                  <a
+                    href="mailto:rakeshjewells@gmail.com"
+                    className="mt-2 inline-block text-base text-neutral-900 underline underline-offset-4 transition hover:text-neutral-500"
+                  >
+                    rakeshjewells@gmail.com
+                  </a>
+                </div>
+
+                <div>
+                  <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
+                    Instagram
+                  </p>
+
+                  <div className="mt-2 flex flex-col gap-2">
+                    <a
+                      href="https://www.instagram.com/rakesh_jewels01/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-base text-neutral-900 underline underline-offset-4 transition hover:text-neutral-500"
+                    >
+                      @rakesh_jewels01
+                    </a>
+
+                    <a
+                      href="https://www.instagram.com/rakesh_jewellers_jaipur/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-base text-neutral-900 underline underline-offset-4 transition hover:text-neutral-500"
+                    >
+                      @rakesh_jewellers_jaipur
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact card */}
+            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-8">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
+                Visit Us
+              </p>
+
+              <h3 className="mt-4 text-2xl font-medium text-neutral-900">
+                Two showroom locations in Jaipur
+              </h3>
+
+              <div className="mt-6 space-y-6">
+                <div>
+                  <p className="font-medium text-neutral-900">
+                    Showroom 01
+                  </p>
+
+                  <p className="mt-2 text-sm leading-6 text-neutral-600">
+                    Shop No. 95, Corner, Khatipura Rd, Ambika Vihar Colony,
+                    Prem Nagar, Jhotwara, Jaipur, Rajasthan 302012
+                  </p>
+
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Shop+No+95+Corner+Khatipura+Rd+Ambika+Vihar+Colony+Prem+Nagar+Jhotwara+Jaipur+Rajasthan+302012"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex text-sm font-medium text-neutral-900 underline underline-offset-4 transition hover:text-neutral-500"
+                  >
+                    Get Directions →
+                  </a>
+                </div>
+
+                <div className="border-t border-neutral-200 pt-6">
+                  <p className="font-medium text-neutral-900">
+                    Showroom 02
+                  </p>
+
+                  <p className="mt-2 text-sm leading-6 text-neutral-600">
+                    Shop No. 43, Near Nursery Circle, Amrapali Marg, opposite
+                    Tagore Public School, Vaishali Nagar, Jaipur, Rajasthan
+                    302021
+                  </p>
+
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Shop+No+43+Near+Nursery+Circle+Amrapali+Marg+opposite+Tagore+Public+School+Vaishali+Nagar+Jaipur+Rajasthan+302021"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex text-sm font-medium text-neutral-900 underline underline-offset-4 transition hover:text-neutral-500"
+                  >
+                    Get Directions →
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
