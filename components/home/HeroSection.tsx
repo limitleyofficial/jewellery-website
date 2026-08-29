@@ -3,10 +3,20 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-[#f7f4ee]">
-      <div className="mx-auto max-w-[1440px]">
-        <div className="grid min-h-[calc(100vh-78px)] lg:grid-cols-[0.9fr_1.1fr]">
+      {/* Subtle Rajasthan-inspired background texture */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.08]"
+        style={{
+          backgroundImage: "url('/images/rajasthan-jali-bg.png')",
+        }}
+      />
+
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#f7f4ee]/95 via-[#f7f4ee]/70 to-transparent" />
+
+      <div className="relative mx-auto max-w-[1440px]">
+        <div className="grid min-h-[calc(100vh-86px)] lg:grid-cols-[0.9fr_1.1fr]">
           {/* Left Content */}
-          <div className="flex items-center px-6 py-16 sm:px-10 lg:px-16 xl:px-20">
+          <div className="relative z-10 flex items-center px-6 py-16 sm:px-10 lg:px-16 xl:px-20">
             <div className="w-full max-w-xl">
               <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-neutral-500">
                 Rakesh Jewellers • Jaipur
