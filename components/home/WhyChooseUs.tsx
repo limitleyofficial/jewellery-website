@@ -1,62 +1,77 @@
+const values = [
+  {
+    number: "01",
+    title: "Personal Attention",
+    description:
+      "Take your time, explore the details, and receive thoughtful guidance from our team.",
+  },
+  {
+    number: "02",
+    title: "A Jaipur Presence",
+    description:
+      "Visit us at either of our two Jaipur showrooms and experience the collection in person.",
+  },
+  {
+    number: "03",
+    title: "Made for Your Moment",
+    description:
+      "From celebrations to everyday elegance, discover pieces that feel right for you.",
+  },
+];
+
 export default function WhyChooseUs() {
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
-        <div className="border-t border-neutral-200 pt-16">
-          <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
-              Why Choose Us
+    <section className="bg-[#f7f4ee]">
+      <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-neutral-500">
+              The Experience
             </p>
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
-              A more personal way to discover jewellery.
+            <h2 className="mt-5 max-w-xl font-serif text-4xl font-medium leading-[1.05] tracking-[-0.02em] text-neutral-900 sm:text-5xl lg:text-6xl">
+              More than jewellery.
+              <br />
+              A personal experience.
             </h2>
-
-            <p className="mt-4 text-base leading-7 text-neutral-600">
-              Explore Rakesh Jewellers through our Jaipur showrooms and connect
-              with our team for a more personal jewellery-buying experience.
-            </p>
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6">
-              <p className="text-2xl font-semibold text-neutral-900">01</p>
+          <p className="max-w-xl text-base leading-7 text-neutral-600 lg:justify-self-end">
+            Choosing jewellery is personal. We believe the experience should be
+            too — thoughtful, relaxed, and centred around finding something
+            that feels uniquely yours.
+          </p>
+        </div>
 
-              <h3 className="mt-4 text-xl font-medium text-neutral-900">
-                Personal Service
+        <div className="mt-16 border-t border-neutral-200">
+          {values.map((value) => (
+            <div
+              key={value.number}
+              className="grid gap-6 border-b border-neutral-200 py-10 lg:grid-cols-[100px_1fr_1fr] lg:items-center lg:py-12"
+            >
+              <span className="font-serif text-3xl text-neutral-300">
+                {value.number}
+              </span>
+
+              <h3 className="font-serif text-3xl font-medium text-neutral-900 sm:text-4xl">
+                {value.title}
               </h3>
 
-              <p className="mt-2 text-sm leading-6 text-neutral-600">
-                Speak with our team and explore jewellery with personal
-                attention.
+              <p className="max-w-lg text-sm leading-6 text-neutral-600 lg:justify-self-end">
+                {value.description}
               </p>
             </div>
+          ))}
+        </div>
 
-            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6">
-              <p className="text-2xl font-semibold text-neutral-900">02</p>
-
-              <h3 className="mt-4 text-xl font-medium text-neutral-900">
-                Two Jaipur Showrooms
-              </h3>
-
-              <p className="mt-2 text-sm leading-6 text-neutral-600">
-                Visit either of our two convenient showroom locations in Jaipur.
-              </p>
-            </div>
-
-            <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 p-6">
-              <p className="text-2xl font-semibold text-neutral-900">03</p>
-
-              <h3 className="mt-4 text-xl font-medium text-neutral-900">
-                Explore in Person
-              </h3>
-
-              <p className="mt-2 text-sm leading-6 text-neutral-600">
-                See the jewellery in person and get help finding the right
-                piece for your occasion.
-              </p>
-            </div>
-          </div>
+        <div className="mt-12">
+          <a
+            href="#contact"
+            className="inline-flex items-center border-b border-neutral-900 pb-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-500 hover:text-neutral-500"
+          >
+            Start a conversation
+            <span className="ml-3">→</span>
+          </a>
         </div>
       </div>
     </section>
