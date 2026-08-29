@@ -8,7 +8,7 @@ export default function HeroSection() {
         <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-neutral-200/50 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto grid min-h-[80vh] max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:px-8">
+      <div className="relative mx-auto grid min-h-[80vh] max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-20">
         <div className="max-w-2xl">
           <div className="mb-6">
             <Image
@@ -44,7 +44,7 @@ export default function HeroSection() {
 
             <a
               href="#showrooms"
-              className="inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-900"
+              className="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white/70 px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-900 hover:bg-white"
             >
               Find a Showroom
             </a>
@@ -52,20 +52,23 @@ export default function HeroSection() {
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-amber-100/40 via-transparent to-neutral-200/50 blur-2xl" />
+          <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-amber-100/50 via-transparent to-neutral-200/60 blur-2xl" />
 
-          <div className="relative rounded-[2rem] border border-neutral-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm sm:p-6">
-            <div className="relative flex h-[420px] items-center justify-center overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-gradient-to-br from-neutral-50 via-white to-neutral-100">
-              <div className="absolute left-0 top-0 h-48 w-48 -translate-x-1/3 -translate-y-1/3 rounded-full bg-amber-100/50 blur-3xl" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-neutral-200 bg-white/80 p-3 shadow-sm backdrop-blur-sm sm:p-5">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-neutral-100">
+              <Image
+                src="/images/products/product-01.jpeg"
+                alt="Green necklace from Rakesh Jewellers"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition duration-700 hover:scale-105"
+                priority
+              />
 
-              <div className="absolute bottom-0 right-0 h-56 w-56 translate-x-1/3 translate-y-1/3 rounded-full bg-neutral-200/60 blur-3xl" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
-              <div className="relative flex h-72 w-72 items-center justify-center rounded-full border border-neutral-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
-                <div className="h-56 w-56 rounded-full border border-neutral-200" />
-
-                <div className="absolute h-36 w-36 rounded-full border border-amber-200 bg-gradient-to-br from-amber-100/80 to-white shadow-sm" />
-
-                <div className="absolute h-16 w-16 rounded-full bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)]" />
+              <div className="absolute bottom-5 left-5 rounded-full border border-white/30 bg-black/30 px-4 py-2 text-xs font-medium text-white backdrop-blur-md">
+                Featured Jewellery
               </div>
             </div>
           </div>
