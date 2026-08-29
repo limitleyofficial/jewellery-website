@@ -1,6 +1,7 @@
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/home/HeroSection";
 import TrustBar from "../components/home/TrustBar";
+import CategorySection from "../components/home/CategorySection";
 import CollectionsPreview from "../components/home/CollectionsPreview";
 import AboutSection from "../components/home/AboutSection";
 import ShowroomsSection from "../components/home/ShowroomsSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <TrustBar />
+      <CategorySection />
       <CollectionsPreview />
       <AboutSection />
       <ShowroomsSection />
