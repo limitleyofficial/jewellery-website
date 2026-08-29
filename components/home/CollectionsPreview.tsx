@@ -16,7 +16,7 @@ const products = [
   },
   {
     title: "Green Necklace Close-up",
-    description: "A closer look at the intricate detailing and stonework.",
+    description: "Intricate detailing and refined stonework.",
     image: "/images/products/product-03.jpeg",
   },
   {
@@ -26,7 +26,7 @@ const products = [
   },
   {
     title: "Silver Bracelet",
-    description: "Elegant detailing presented in a clean, modern style.",
+    description: "Elegant detailing with a clean, modern style.",
     image: "/images/products/product-05.jpeg",
   },
   {
@@ -36,7 +36,7 @@ const products = [
   },
   {
     title: "Gold Set",
-    description: "A classic gold set with a refined traditional appeal.",
+    description: "A classic gold set with traditional appeal.",
     image: "/images/products/product-07.jpeg",
   },
 ];
@@ -75,7 +75,9 @@ export default function CollectionsPreview() {
   };
 
   useEffect(() => {
-    if (!selectedImage) return;
+    if (!selectedImage) {
+      return;
+    }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -94,90 +96,167 @@ export default function CollectionsPreview() {
 
   return (
     <>
-      <section id="collections" className="bg-[#faf9f6]">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.35em] text-neutral-500">
-              The Collection
-            </p>
+      <section id="collections" className="bg-[#f7f4ee]">
+        <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
+          {/* Section intro */}
+          <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-end">
+            <div>
+              <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-neutral-500">
+                The Collection
+              </p>
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
-              Jewellery that speaks for itself.
-            </h2>
+              <h2 className="mt-5 max-w-xl font-serif text-4xl font-medium leading-[1.05] tracking-[-0.02em] text-neutral-900 sm:text-5xl lg:text-6xl">
+                Pieces made to
+                <br />
+                become memories.
+              </h2>
+            </div>
 
-            <p className="mt-5 text-base leading-7 text-neutral-600">
-              Explore selected pieces from श्रृंगार by Rakesh Jewellers,
-              thoughtfully presented for every special moment.
+            <p className="max-w-xl text-base leading-7 text-neutral-600 lg:justify-self-end lg:pb-1">
+              Discover a curated selection from श्रृंगार by Rakesh Jewellers,
+              where timeless forms meet the beauty of modern celebrations.
             </p>
           </div>
 
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product, index) => (
-              <article
-                key={`${product.title}-${product.image}`}
-                className={`group overflow-hidden rounded-[2rem] border border-neutral-200 bg-white shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-xl ${
-                  index === 0 || index === 1 || index === 6
-                    ? "lg:shadow-md"
-                    : ""
-                }`}
+          {/* Editorial gallery */}
+          <div className="mt-16 grid gap-6 lg:grid-cols-12">
+            {/* Featured piece */}
+            <article className="group lg:col-span-7">
+              <button
+                type="button"
+                onClick={() =>
+                  openImage(products[0].image, products[0].title)
+                }
+                className="block w-full cursor-zoom-in text-left"
+                aria-label={`View ${products[0].title} larger`}
               >
+                <div className="relative aspect-[4/5] overflow-hidden bg-neutral-200 sm:aspect-[5/6]">
+                  <Image
+                    src={products[0].image}
+                    alt={products[0].title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    className="object-cover transition duration-1000 group-hover:scale-[1.03]"
+                    priority
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+
+                  <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.3em] text-white/70">
+                        Featured piece
+                      </p>
+
+                      <h3 className="mt-2 font-serif text-3xl text-white sm:text-4xl">
+                        {products[0].title}
+                      </h3>
+                    </div>
+
+                    <span className="hidden rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs text-white backdrop-blur-md sm:block">
+                      View →
+                    </span>
+                  </div>
+                </div>
+              </button>
+            </article>
+
+            {/* Right column */}
+            <div className="grid gap-6 lg:col-span-5">
+              {products.slice(1, 3).map((product) => (
+                <article key={product.image} className="group">
+                  <button
+                    type="button"
+                    onClick={() => openImage(product.image, product.title)}
+                    className="block w-full cursor-zoom-in text-left"
+                    aria-label={`View ${product.title} larger`}
+                  >
+                    <div className="relative aspect-[16/11] overflow-hidden bg-neutral-200">
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 42vw"
+                        className="object-cover transition duration-1000 group-hover:scale-[1.03]"
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+
+                      <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                        <h3 className="font-serif text-2xl text-white sm:text-3xl">
+                          {product.title}
+                        </h3>
+
+                        <span className="rounded-full border border-white/30 bg-white/10 px-3 py-2 text-xs text-white backdrop-blur-md">
+                          →
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* Remaining pieces */}
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {products.slice(3).map((product) => (
+              <article key={product.image} className="group">
                 <button
                   type="button"
                   onClick={() => openImage(product.image, product.title)}
                   className="block w-full cursor-zoom-in text-left"
                   aria-label={`View ${product.title} larger`}
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-neutral-200">
                     <Image
                       src={product.image}
                       alt={product.title}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition duration-700 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition duration-1000 group-hover:scale-[1.04]"
                     />
 
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-                    <div className="absolute inset-x-5 bottom-5 flex items-center justify-between rounded-full border border-white/30 bg-black/30 px-4 py-2.5 text-xs font-medium text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100">
-                      <span>View Jewellery</span>
-                      <span>↗</span>
+                    <div className="absolute bottom-5 left-5 right-5">
+                      <p className="text-[10px] uppercase tracking-[0.3em] text-white/70">
+                        Rakesh Jewellers
+                      </p>
+
+                      <h3 className="mt-2 font-serif text-2xl text-white">
+                        {product.title}
+                      </h3>
                     </div>
                   </div>
                 </button>
-
-                <div className="p-6 sm:p-7">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-neutral-400">
-                    Rakesh Jewellers
-                  </p>
-
-                  <h3 className="mt-3 text-xl font-medium tracking-tight text-neutral-900">
-                    {product.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-neutral-600">
-                    {product.description}
-                  </p>
-
-                  <button
-                    type="button"
-                    onClick={() => openImage(product.image, product.title)}
-                    className="mt-5 inline-flex items-center text-sm font-medium text-neutral-900 transition hover:text-neutral-500"
-                  >
-                    View details
-                    <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </button>
-                </div>
               </article>
             ))}
+          </div>
+
+          {/* Closing line */}
+          <div className="mt-20 border-t border-neutral-200 pt-8">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <p className="max-w-lg font-serif text-2xl leading-tight text-neutral-800 sm:text-3xl">
+                Designed for celebrations, crafted for generations.
+              </p>
+
+              <a
+                href="#contact"
+                className="inline-flex w-fit items-center border-b border-neutral-900 pb-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-500 hover:text-neutral-500"
+              >
+                Enquire about a piece
+                <span className="ml-3">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Image viewer */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md"
           role="dialog"
           aria-modal="true"
           aria-label={`${selectedImage.title} enlarged view`}
@@ -199,7 +278,7 @@ export default function CollectionsPreview() {
             </button>
 
             <div
-              className="relative flex h-[75vh] w-full items-center justify-center overflow-hidden rounded-[1.5rem] bg-neutral-950"
+              className="relative flex h-[75vh] w-full items-center justify-center overflow-hidden bg-neutral-950"
               onDoubleClick={handleDoubleClick}
               style={{
                 cursor: zoom > 1 ? "zoom-out" : "zoom-in",
@@ -216,12 +295,12 @@ export default function CollectionsPreview() {
                 }}
               />
 
-              <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-4 py-2 text-xs text-white backdrop-blur-sm">
+              <div className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-4 py-2 text-xs text-white backdrop-blur-sm">
                 Scroll to zoom • Double-click to zoom
               </div>
             </div>
 
-            <p className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center text-sm text-white/80">
+            <p className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center font-serif text-lg text-white/90">
               {selectedImage.title}
             </p>
           </div>
