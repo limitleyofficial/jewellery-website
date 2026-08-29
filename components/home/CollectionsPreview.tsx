@@ -153,11 +153,7 @@ export default function CollectionsPreview() {
                   </button>
 
                   <div className="p-6">
-                    <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-500">
-                      Featured
-                    </p>
-
-                    <h3 className="mt-3 text-xl font-medium text-neutral-900">
+                    <h3 className="text-xl font-medium text-neutral-900">
                       {product.title}
                     </h3>
 
@@ -198,7 +194,9 @@ export default function CollectionsPreview() {
             <div
               className="relative flex h-[75vh] w-full items-center justify-center overflow-hidden rounded-[1.5rem] bg-neutral-950"
               onDoubleClick={handleDoubleClick}
-              style={{ cursor: zoom > 1 ? "zoom-out" : "zoom-in" }}
+              style={{
+                cursor: zoom > 1 ? "zoom-out" : "zoom-in",
+              }}
             >
               <Image
                 src={selectedImage.image}
