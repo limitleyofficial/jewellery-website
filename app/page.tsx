@@ -2,6 +2,7 @@ import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/home/HeroSection";
 import TrustBar from "../components/home/TrustBar";
 import CategorySection from "../components/home/CategorySection";
+import FeaturedJewellery from "../components/home/FeaturedJewellery";
 import CollectionsPreview from "../components/home/CollectionsPreview";
 import AboutSection from "../components/home/AboutSection";
 import ShowroomsSection from "../components/home/ShowroomsSection";
@@ -16,6 +17,7 @@ export default function Home() {
       <HeroSection />
       <TrustBar />
       <CategorySection />
+      <FeaturedJewellery />
       <CollectionsPreview />
       <AboutSection />
       <ShowroomsSection />
