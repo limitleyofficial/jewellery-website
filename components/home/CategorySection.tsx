@@ -1,32 +1,26 @@
 import Image from "next/image";
 
-const categories = [
-  {
-    title: "Necklaces",
-    description: "Elegant statement pieces for every celebration.",
-    image: "/images/products/product-01.jpeg",
-  },
-  {
-    title: "Bridal Jewellery",
-    description: "Timeless pieces for your most unforgettable day.",
-    image: "/images/products/product-02.jpeg",
-  },
-  {
-    title: "Bracelets",
-    description: "Refined designs crafted for effortless elegance.",
-    image: "/images/products/product-04.jpeg",
-  },
-  {
-    title: "Gold Sets",
-    description: "Classic gold jewellery with a timeless appeal.",
-    image: "/images/products/product-07.jpeg",
-  },
+type Category = {
+  title: string;
+  image?: string;
+};
+
+const categories: Category[] = [
+  { title: "Earrings", image: "/images/client-jewellery/01-diamond-drop-earrings.jpg" },
+  { title: "Finger Rings" },
+  { title: "Pendants", image: "/images/client-jewellery/03-oval-diamond-halo-pendant.jpg" },
+  { title: "Mangalsutras" },
+  { title: "Bracelets" },
+  { title: "Bangles" },
+  { title: "Chains" },
+  { title: "Nose Pins" },
+  { title: "Necklaces", image: "/images/client-jewellery/04-oval-halo-necklace-set.jpg" },
+  { title: "Necklace Sets", image: "/images/client-jewellery/02-floral-diamond-necklace-set.jpg" },
 ];
 
 export default function CategorySection() {
   return (
-    <section className="relative overflow-hidden bg-[#f4eee4]">
-      {/* Very subtle Rajasthan-inspired texture */}
+    <section className="relative overflow-hidden bg-[#f6f0e7]">
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.035]"
         style={{
@@ -34,102 +28,78 @@ export default function CategorySection() {
         }}
       />
 
-      <div className="relative mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
-        {/* Section heading */}
-        <div className="grid gap-10 border-y border-neutral-300/70 py-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
-            <div className="flex items-center gap-4">
-              <span className="h-px w-10 bg-neutral-400" />
+      <div className="relative mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[10px] font-medium uppercase tracking-[0.35em] text-neutral-500">
+            Find Your Perfect Match
+          </p>
 
-              <p className="text-[10px] font-medium uppercase tracking-[0.35em] text-neutral-500">
-                Jaipur • Rajasthan
-              </p>
-            </div>
+          <h2 className="mt-4 font-serif text-4xl font-medium leading-none tracking-[-0.02em] text-neutral-900 sm:text-5xl lg:text-6xl">
+            Shop by Categories
+          </h2>
 
-            <h2 className="mt-6 max-w-xl font-serif text-4xl font-medium leading-[1.02] tracking-[-0.02em] text-neutral-900 sm:text-5xl lg:text-6xl">
-              Find something
-              <br />
-              that feels like you.
-            </h2>
-          </div>
-
-          <div className="lg:justify-self-end">
-            <p className="max-w-xl text-base leading-7 text-neutral-600">
-              Explore timeless jewellery categories from श्रृंगार by Rakesh
-              Jewellers — thoughtfully selected in Jaipur for celebrations,
-              traditions, and everyday elegance.
-            </p>
-          </div>
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-neutral-600 sm:text-base">
+            Explore the jewellery styles at श्रृंगार by Rakesh Jewellers.
+            More category imagery can be added as the collection grows.
+          </p>
         </div>
 
-        {/* Category cards */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((category, index) => (
-            <a
-              key={`${category.title}-${index}`}
-              href="#collections"
-              className="group block"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden bg-neutral-200">
-                <Image
-                  src={category.image}
-                  alt={category.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition duration-1000 group-hover:scale-[1.04]"
-                />
+        <div className="mt-12 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex min-w-max justify-center gap-3 lg:min-w-0 lg:grid lg:grid-cols-5 lg:gap-4">
+            {categories.map((category, index) => (
+              <div
+                key={category.title}
+                className="group w-[170px] shrink-0 sm:w-[200px] lg:w-auto"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#ebe3d8]">
+                  {category.image ? (
+                    <Image
+                      src={category.image}
+                      alt={category.title}
+                      fill
+                      sizes="(max-width: 1024px) 200px, 20vw"
+                      className="object-cover transition duration-1000 group-hover:scale-[1.04]"
+                    />
+                  ) : (
+                    <>
+                      <div
+                        className="absolute inset-0 bg-cover bg-center"
+                        style={{
+                          backgroundImage:
+                            "url('/images/rajasthan-jali-bg.png')",
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-[#f0e8dd]/85" />
+                    </>
+                  )}
 
-                {/* Image overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
 
-                {/* Category number */}
-                <div className="absolute left-5 top-5">
-                  <span className="font-serif text-lg text-white/80">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                {/* Category content */}
-                <div className="absolute inset-x-5 bottom-5">
-                  <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/65">
-                    Explore
-                  </p>
-
-                  <h3 className="mt-2 font-serif text-2xl text-white sm:text-3xl">
-                    {category.title}
-                  </h3>
-
-                  <p className="mt-2 max-w-xs text-sm leading-5 text-white/75">
-                    {category.description}
-                  </p>
-
-                  <div className="mt-5 flex items-center justify-between border-t border-white/25 pt-3">
-                    <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/80">
-                      View Collection
+                  <div className="absolute left-4 top-4">
+                    <span className="font-serif text-lg text-white/80">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
+                  </div>
 
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-sm text-white backdrop-blur-sm transition duration-300 group-hover:bg-white group-hover:text-neutral-900">
-                      →
-                    </span>
+                  <div className="absolute inset-x-4 bottom-4">
+                    <p className="text-[9px] font-medium uppercase tracking-[0.24em] text-white/65">
+                      {category.image ? "Explore" : "Coming Soon"}
+                    </p>
+
+                    <h3 className="mt-2 font-serif text-2xl text-white sm:text-[27px]">
+                      {category.title}
+                    </h3>
+
+                    {!category.image && (
+                      <p className="mt-2 text-xs leading-5 text-white/65">
+                        Dedicated imagery will be added from the collection.
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
-            </a>
-          ))}
-        </div>
-
-        {/* Heritage closing line */}
-        <div className="mt-12 flex flex-col gap-4 border-b border-neutral-300/70 pb-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-serif text-xl text-neutral-800 sm:text-2xl">
-            Inspired by Jaipur. Chosen for you.
-          </p>
-
-          <a
-            href="#collections"
-            className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500 transition hover:text-neutral-900"
-          >
-            Explore all jewellery →
-          </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

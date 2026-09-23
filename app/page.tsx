@@ -2,6 +2,7 @@ import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/home/HeroSection";
 import TrustBar from "../components/home/TrustBar";
 import CategorySection from "../components/home/CategorySection";
+import ShringarWorld from "../components/home/ShringarWorld";
 import FeaturedJewellery from "../components/home/FeaturedJewellery";
 import CollectionsPreview from "../components/home/CollectionsPreview";
 import AboutSection from "../components/home/AboutSection";
@@ -14,15 +15,27 @@ export default function Home() {
   return (
     <>
       <Navbar />
+
       <HeroSection />
+
       <TrustBar />
+
       <CategorySection />
+
+      <ShringarWorld />
+
       <FeaturedJewellery />
+
       <CollectionsPreview />
+
       <AboutSection />
+
       <ShowroomsSection />
+
       <WhyChooseUs />
+
       <ContactSection />
+
       <Footer />
     </>
   );
